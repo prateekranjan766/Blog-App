@@ -1,0 +1,4 @@
+{
+  "jwtSecret": "randomSecret1234",
+  "mongoURI": "mongodb+srv://prateek-ranjan:prateek-ranjan@blog-app.ihnvj.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
