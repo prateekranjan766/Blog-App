@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #ef4f4ff3;
+  display: flex;
+  justify-content: flex-start;
+  h1 {
+    font-weight: 500;
+    padding: 1rem;
+    font-size: 3.5rem;
+    margin-left: 1rem;
+    text-align: left;
+    color: #f4f4f4;
+    flex: 1;
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  ul {
+    margin-right: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    li {
+      margin-left: 2rem;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

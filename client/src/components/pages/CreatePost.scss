@@ -1,0 +1,55 @@
+.create-post {
+  text-align: center;
+  &__submit {
+    background-color: #07917cda;
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: #fff;
+    transition: all 0.3s;
+    &:hover,
+    &:focus {
+      background-color: #07917c;
+      transform: translateY(-0.3rem);
+    }
+  }
+  h1 {
+    margin-bottom: 3rem;
+    font-size: 4rem;
+    font-weight: 500;
+    color: #ff7b54;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    label {
+      margin-bottom: 2rem;
+      position: relative;
+      input,
+      textarea {
+        font-family: inherit;
+        font-size: 1.6rem;
+        padding: 1rem;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+      }
+      input {
+        padding-left: 3.6rem;
+      }
+      i {
+        position: absolute;
+        top: 1rem;
+        font-size: 1.8rem;
+        left: 1rem;
+        color: #888888;
+      }
+    }
+  }
+}

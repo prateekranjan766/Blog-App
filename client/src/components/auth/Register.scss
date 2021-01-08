@@ -1,0 +1,67 @@
+.register {
+  background-color: #fff;
+  padding: 2rem;
+  width: 40%;
+  margin: 10rem auto 1rem auto;
+  font-size: 1.3rem;
+  text-align: center;
+  &__link {
+    background-color: #fff;
+    padding: 2rem;
+    width: 40%;
+    margin: auto;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  //Submit button
+  &__submit {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 0.8rem;
+    background-color: #ef4f4ff3;
+    color: #f4f4f4;
+    border-radius: 3px;
+    overflow: hidden;
+    border: none;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #ef4f4f;
+      transform: translateY(-0.3rem);
+    }
+  }
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    span {
+      color: #ef4f4ff3;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 95%;
+    margin: auto;
+    label {
+      position: relative;
+      input {
+        display: block;
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 0.8rem;
+        margin-bottom: 2rem;
+        padding-left: 3rem;
+      }
+      i {
+        position: absolute;
+        font-size: 1.6rem;
+        top: 1rem;
+        left: 1rem;
+        color: #888888;
+      }
+    }
+  }
+}
