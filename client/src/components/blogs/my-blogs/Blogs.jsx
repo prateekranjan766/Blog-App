@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BlogContext from "../../../context/blog/blogContext";
 import BlogItems from "./BlogItems";
 import "./Blogs.scss";
+import Loading from "./../../loading/Loading";
 
 const Blogs = (props) => {
   const blogContext = useContext(BlogContext);
@@ -19,9 +20,6 @@ const Blogs = (props) => {
 
   useEffect(() => {
     getPersonalBlogs();
-    // if (filteredPersonal === null) {
-    //   text.current.value = "";
-    // }
     //eslint-disable-next-line
   }, []);
 
@@ -93,7 +91,7 @@ const Blogs = (props) => {
                 ))}
           </div>
         ) : (
-          <h1>Lodaing...</h1>
+          <Loading />
         )}
       </div>
     </div>

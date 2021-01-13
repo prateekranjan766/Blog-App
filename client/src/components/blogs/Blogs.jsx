@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import BlogContext from "../../context/blog/blogContext";
 import BlogItems from "./BlogItems";
 import "./Blogs.scss";
+import Loading from "./../loading/Loading";
 
 const Blogs = () => {
   const blogContext = useContext(BlogContext);
@@ -30,7 +31,7 @@ const Blogs = () => {
   };
 
   if (blogs !== null && blogs.length === 0 && !loading) {
-    return <h4>Please add a BLOG!</h4>;
+    return <Loading />;
   }
 
   return (
@@ -61,7 +62,9 @@ const Blogs = () => {
               : blogs.map((blog) => <BlogItems key={blog.title} blog={blog} />)}
           </div>
         ) : (
-          <h1>Loading...</h1>
+          <h1>
+            <Loading />
+          </h1>
         )}
       </div>
     </>
