@@ -1,14 +1,14 @@
 .navbar {
-  background-color: #ef4f4ff3;
+  background-color: #282828d8;
+  // box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: flex-start;
   h1 {
     font-weight: 500;
-    padding: 1rem;
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-left: 1rem;
     text-align: left;
-    color: #f4f4f4;
+    color: #fff;
     flex: 1;
     i {
       margin-right: 0.5rem;
@@ -24,14 +24,14 @@
     li {
       margin-left: 2rem;
       transition: transform 0.3s;
-      &:hover {
+      &:hover:not(:nth-child(3)) {
         transform: scale(1.2);
       }
     }
   }
   &__link {
     text-decoration: none;
-    color: #f4f4f4;
+    color: #fff;
     font-size: 2rem;
     font-weight: 500;
   }

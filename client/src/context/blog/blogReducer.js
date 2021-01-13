@@ -76,8 +76,11 @@ export default (state, action) => {
       return {
         ...state,
         filtered: state.blogs.filter((blog) => {
-          const regex = new RegExp(`${action.payload}`, "gi");
-          return blog.title.match(regex);
+          // const regex = new RegExp(`${action.payload}`, "gi");
+
+          return blog.title
+            .toLowerCase()
+            .includes(action.payload.toLowerCase());
         }),
       };
     case CLEAR_FILTER:

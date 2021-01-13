@@ -8,7 +8,7 @@ const Navbar = () => {
   const authContext = useContext(AuthContext);
   const blogContext = useContext(BlogContext);
 
-  const { logout } = authContext;
+  const { logout, user, isAuthenticated } = authContext;
   const { clearBlogs, clearFilter } = blogContext;
 
   const onLogout = () => {
@@ -16,6 +16,7 @@ const Navbar = () => {
     clearFilter();
     logout();
   };
+
   return (
     <div className="navbar">
       <h1>
@@ -33,6 +34,19 @@ const Navbar = () => {
             My Posts
           </Link>
         </li>
+
+        {isAuthenticated === true && (
+          <li
+            style={{
+              color: "#16c79a",
+              fontFamily: "inherit",
+              fontSize: "2rem",
+            }}
+          >
+            Hello! {user && user.name}
+          </li>
+        )}
+
         <li>
           <Link className="navbar__link" to="/login" onClick={onLogout}>
             Logout

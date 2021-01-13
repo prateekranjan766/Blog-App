@@ -6,5 +6,7 @@ export default (state, action) => {
       return [action.payload, ...state];
     case REMOVE_ALERT:
       return state.filter((alert) => alert.id !== action.payload);
+    default:
+      return state;
   }
 };

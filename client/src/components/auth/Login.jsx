@@ -75,9 +75,12 @@ const Login = (props) => {
         </form>
       </div>
       <div className="login__link">
-        <h3>
-          New Here?<Link to="/register">Register for free</Link>
-        </h3>
+        <h2>
+          New Here?
+          <Link className="login__link--link" to="/register">
+            Register for free
+          </Link>
+        </h2>
       </div>
     </>
   );

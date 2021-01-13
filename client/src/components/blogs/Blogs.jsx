@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import BlogContext from "../../context/blog/blogContext";
 import BlogItems from "./BlogItems";
+import "./Blogs.scss";
 
 const Blogs = () => {
   const blogContext = useContext(BlogContext);
@@ -52,13 +53,13 @@ const Blogs = () => {
       </form>
       <div>
         {blogs !== null && !loading ? (
-          <>
+          <div className="blogs">
             {filtered !== null
               ? filtered.map((blog) => (
                   <BlogItems key={blog.title} blog={blog} />
                 ))
               : blogs.map((blog) => <BlogItems key={blog.title} blog={blog} />)}
-          </>
+          </div>
         ) : (
           <h1>Loading...</h1>
         )}

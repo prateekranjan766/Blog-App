@@ -60,7 +60,7 @@ const BlogState = (props) => {
       const res = await axios.post("/api/blogs", blog, config);
       dispatch({ type: ADD_BLOG, payload: res.data });
     } catch (err) {
-      dispatch({ type: BLOG_ERROR, payload: err.response.msg });
+      dispatch({ type: BLOG_ERROR, payload: err.response });
     }
   };
 

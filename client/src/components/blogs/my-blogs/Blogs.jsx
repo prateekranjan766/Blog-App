@@ -75,7 +75,7 @@ const Blogs = (props) => {
       </div>
       <div>
         {personalBlogs !== null && personalBlogs.length > 0 ? (
-          <>
+          <div className="blogs">
             {filteredPersonal !== null
               ? filteredPersonal.map((blog) => (
                   <BlogItems
@@ -91,7 +91,7 @@ const Blogs = (props) => {
                     blog={blog}
                   />
                 ))}
-          </>
+          </div>
         ) : (
           <h1>Lodaing...</h1>
         )}

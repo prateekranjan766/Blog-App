@@ -1,17 +1,25 @@
 .login {
-  background-color: #fff;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   width: 40%;
-  margin: 15rem auto 1rem auto;
+  margin: 15rem auto 0 auto;
   font-size: 1.3rem;
   text-align: center;
+  border-radius: 4px;
+  color: khaki;
   &__link {
-    background-color: #fff;
+    color: khaki;
+    border-radius: 4px;
     padding: 2rem;
     width: 40%;
     margin: auto;
     font-size: 1.3rem;
     text-align: center;
+
+    &--link {
+      text-decoration: none;
+      color: #55b3b1;
+      padding-left: 1rem;
+    }
   }
   //Submit button
   &__submit {
@@ -19,6 +27,7 @@
     width: 100%;
     font-size: 2rem;
     padding: 0.8rem;
+    font-family: inherit;
     background-color: #ef4f4ff3;
     color: #f4f4f4;
     border-radius: 3px;
@@ -44,22 +53,33 @@
     align-content: center;
     width: 95%;
     margin: auto;
+
     label {
       position: relative;
+
       input {
+        background-color: khaki;
+        font-family: inherit;
         display: block;
         width: 100%;
         font-size: 1.6rem;
-        padding: 0.8rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: none;
+        border-radius: 4px;
         margin-bottom: 2rem;
         padding-left: 3rem;
+        &::placeholder {
+          color: #333;
+        }
       }
       i {
         font-size: 1.6rem;
         position: absolute;
-        top: 1rem;
+        top: 1.1rem;
         left: 1rem;
-        color: #888888;
+        color: #333;
       }
     }
   }

@@ -31,7 +31,7 @@ function App() {
       <BlogState>
         <Router>
           <div className="App">
-            {localStorage.token && <Navbar />}
+            {isAuthenticated && <Navbar />}
             <div className="container">
               <Alerts />
               <Switch>

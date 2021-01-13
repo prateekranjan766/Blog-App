@@ -100,9 +100,12 @@ const Register = (props) => {
         </form>
       </div>
       <div className="register__link">
-        <h3>
-          Already a user?<Link to="/login">Login</Link>
-        </h3>
+        <h2>
+          Already a user?
+          <Link className="register__link--link" to="/login">
+            Login
+          </Link>
+        </h2>
       </div>
     </>
   );

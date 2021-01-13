@@ -1,20 +1,15 @@
+import Accordion from "./../accordion/Accordion";
+
 const BlogItems = ({ blog }) => {
-  const { title, description, data } = blog;
+  const { title, description, data, user } = blog;
   return (
     <div className="blog-items">
-      {/* <h1>
-        <i className="fas fa-user-circle"></i>
-        <span></span>
-      </h1> */}
-      <h1>
-        {title}
-        <span></span>
-      </h1>
-      <h3>
-        Description:- {description}
-        <span></span>
-      </h3>
-      <h4>{data}</h4>
+      <Accordion
+        title={title}
+        author={`-  ${user.name}`}
+        description={description}
+        content={data}
+      />
     </div>
   );
 };

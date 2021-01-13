@@ -1,6 +1,7 @@
 const express = require("express");
-const auth = require("../middleware/auth");
 const Blog = require("./../models/Blog");
+const User = require("./../models/User");
+const auth = require("../middleware/auth");
 const { check, validationResult } = require("express-validator");
 
 const router = express.Router();
@@ -10,7 +11,9 @@ const router = express.Router();
 // @access          Private
 router.get("/", auth, async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().populate("user", "name -_id", User).sort({
+      createdAt: -1,
+    });
     res.json(blogs);
   } catch (err) {
     console.error(err.message);
@@ -23,7 +26,9 @@ router.get("/", auth, async (req, res) => {
 // @access          Private
 router.get("/my-blogs", auth, async (req, res) => {
   try {
-    const blogs = await Blog.find({ user: req.user.id });
+    const blogs = await Blog.find({ user: req.user.id }).sort({
+      createdAt: -1,
+    });
     res.json(blogs);
   } catch (err) {
     console.error(err.message);
