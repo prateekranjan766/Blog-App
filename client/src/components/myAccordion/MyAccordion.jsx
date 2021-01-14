@@ -46,16 +46,18 @@ const MyAccordion = (props) => {
         ref={content}
         style={{ maxHeight: `${setHeight}` }}
       >
-        <div className="accordion__text">
-          {props.content}
-          <div className="buttons">
-            <button className="blog-items__edit" onClick={onEdit}>
-              <i className="fas fa-pencil-alt"></i>Edit
-            </button>
-            <button className="blog-items__delete" onClick={onDelete}>
-              <i className="fas fa-trash"></i>Delete
-            </button>
-          </div>
+        <div
+          className="accordion__text"
+          style={{ whiteSpace: "pre-wrap" }}
+          dangerouslySetInnerHTML={{ __html: props.content }}
+        ></div>
+        <div className="buttons">
+          <button className="blog-items__edit" onClick={onEdit}>
+            <i className="fas fa-pencil-alt"></i>Edit
+          </button>
+          <button className="blog-items__delete" onClick={onDelete}>
+            <i className="fas fa-trash"></i>Delete
+          </button>
         </div>
       </div>
     </div>
