@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from "react";
-import Blogs from "../blogs/my-blogs/Blogs";
-import AuthContext from "./../../context/auth/authContext";
-import Footer from "./../layout/Footer";
+import React, { useContext, useEffect } from 'react';
+import Blogs from '../blogs/my-blogs/Blogs';
+import AuthContext from './../../context/auth/authContext';
 
 const MyPosts = (props) => {
   const authContext = useContext(AuthContext);
@@ -12,7 +11,6 @@ const MyPosts = (props) => {
   return (
     <div>
       <Blogs history={props.history} />
-      <Footer />
     </div>
   );
 };

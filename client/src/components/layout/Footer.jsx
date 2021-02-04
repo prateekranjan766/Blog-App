@@ -1,11 +1,17 @@
-import React from "react";
-import "./Footer.scss";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <h1>Build and Designed by Prateek Ranjan</h1>
-      <h2>Copyright &copy; by Prateek Ranjan</h2>
+    <footer>
+      <Container>
+        <Row>
+          <Col className='text-center py-3' style={{ fontSize: '1.6rem' }}>
+            Build and Designed by Prateek Ranjan <br />
+            Copyright &copy; by Prateek Ranjan
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 };

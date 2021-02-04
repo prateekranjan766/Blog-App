@@ -11,8 +11,9 @@ import {
   CLEAR_FILTER,
   CLEAR_BLOGS,
   BLOG_ERROR,
-} from "../types.js";
+} from '../types.js';
 
+// eslint-disable-next-line
 export default (state, action) => {
   switch (action.type) {
     case GET_BLOGS:
@@ -68,7 +69,7 @@ export default (state, action) => {
       return {
         ...state,
         filteredPersonal: state.personalBlogs.filter((blog) => {
-          const regex = new RegExp(`${action.payload}`, "gi");
+          const regex = new RegExp(`${action.payload}`, 'gi');
           return blog.title.match(regex);
         }),
       };

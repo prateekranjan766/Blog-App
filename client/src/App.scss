@@ -1,34 +1,44 @@
-.accordion__section {
-  display: flex;
-  flex-direction: column;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.accordion {
-  cursor: pointer;
-  //   background-color: #e8eae6;
-  background-color: #282828d8;
-  font-family: inherit;
-  border: none;
-  outline: none;
+html {
+  font-size: 62.5%;
 }
-.accordion__title--container {
-  padding: 1rem 1.5rem;
+
+main {
+  min-height: 80vh;
+}
+body {
+  background-color: #333;
+  font-family: Cairo;
+}
+.nav_link {
   font-size: 2rem;
-  font-family: inherit;
-  display: flex;
-  align-items: center;
-  border: none;
-  outline: none;
 }
 .accordion__title {
-  color: #008891;
+  color: #e09916;
   font-weight: 600;
   padding: 0.5rem 0.9rem;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   text-align: left;
 }
+.accordion__icon {
+  margin-left: auto;
+  color: #fff;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  transition: transform 0.6s ease;
+}
+.accordion {
+  background-color: #282828d8;
+}
 .accordion:hover,
-.active {
-  background-color: #ccc;
+.active_ {
+  .accordion {
+    background-color: #ccc;
+  }
   .accordion__description {
     color: #333;
     font-weight: 600;
@@ -44,30 +54,18 @@
     color: #333;
   }
 }
-.accordion__icon {
-  margin-left: auto;
-  color: #fff;
-  padding-right: 1rem;
-  padding-top: 3rem;
-  transition: transform 0.6s ease;
-}
-.accordion__title--container {
-  padding-left: auto;
-  padding-right: 1rem;
-  transition: transform 0.6s ease;
-}
-.rotate {
-  transform: rotate(180deg) translate(1rem, -3rem);
+.accordion__title {
+  font-size: 2rem;
 }
 .accordion__content {
+  font-size: 1.8rem;
   background-color: #333;
   color: #ade498;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   text-align: justify;
   overflow: auto;
   border: 1px solid white;
   border-top: none;
-  //   border-bottom: none;
   transition: max-height 0.6s ease;
 }
 .accordion__text {
@@ -76,18 +74,48 @@
   font-size: 1.6rem;
   padding: 0.5rem 1rem;
 }
-
+.accordion__author {
+  color: #fd8c04;
+  margin-top: -2.5rem;
+  font-family: inherit;
+  padding-left: 70%;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
 .accordion__description {
   margin-top: -2.5rem;
   font-family: inherit;
   padding: 1rem;
   padding-left: 2.5rem;
-  padding-right: 7rem;
   text-align: justify;
   font-weight: 400;
   font-size: 1.6rem;
   color: white;
 }
+.form_field {
+  background-color: khaki;
+  border-radius: 3px;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+.loading {
+  height: 5rem;
+  animation: Loading infinite 1s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 15rem;
+}
+@keyframes Loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .buttons {
   padding-top: 2rem;
   padding-bottom: 1rem;
@@ -120,4 +148,17 @@
   width: 10rem;
   font-family: inherit;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+  .accordion__author {
+    padding-left: 57%;
+  }
+  .create-blog {
+    margin-bottom: 1rem;
+    margin-left: -1.9rem;
+  }
 }

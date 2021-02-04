@@ -7,8 +7,9 @@ import {
   CLEAR_ERRORS,
   USER_LOADED,
   AUTH_ERROR,
-} from "../types.js";
+} from '../types.js';
 
+// eslint-disable-next-line
 export default (state, action) => {
   switch (action.type) {
     case USER_LOADED:
@@ -20,7 +21,7 @@ export default (state, action) => {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", action.payload);
+      localStorage.setItem('token', action.payload);
       return {
         ...state,
         isAuthenticated: true,
@@ -31,7 +32,7 @@ export default (state, action) => {
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       return {
         ...state,
         isAuthenticated: false,

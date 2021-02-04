@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useRef } from "react";
-import BlogContext from "../../context/blog/blogContext";
-import BlogItems from "./BlogItems";
-import "./Blogs.scss";
-import Loading from "./../loading/Loading";
+import React, { useContext, useEffect, useRef } from 'react';
+import BlogContext from '../../context/blog/blogContext';
+import BlogItems from './BlogItems';
+import { Form } from 'react-bootstrap';
+import Loading from './../loading/Loading';
+import FormContainer from './../layout/FormContainer';
 
 const Blogs = () => {
   const blogContext = useContext(BlogContext);
@@ -15,18 +16,15 @@ const Blogs = () => {
     clearFilter,
   } = blogContext;
 
-  const text = useRef("");
+  const text = useRef('');
 
   useEffect(() => {
     getBlogs();
-    // if (filtered === null) {
-    //   text.current.value = "";
-    // }
     //eslint-disable-next-line
   }, []);
 
   const onChange = (e) => {
-    if (text.current.value !== "") filterBlogs(e.target.value);
+    if (text.current.value !== '') filterBlogs(e.target.value);
     else clearFilter();
   };
 
@@ -36,25 +34,32 @@ const Blogs = () => {
 
   return (
     <>
-      <form
-        className="search__form"
-        style={{ margin: "auto", marginBottom: "3rem" }}
-      >
-        <label className="search__form__label">
-          <i className="fas fa-search" />
-          <input
-            className="search__bar"
-            type="text"
-            ref={text}
-            name={text}
-            placeholder="Search for Blog title"
-            onChange={onChange}
-          />
-        </label>
-      </form>
+      <FormContainer>
+        <Form style={{ margin: 'auto', marginBottom: '3rem' }} className='my-4'>
+          <Form.Group>
+            <Form.Label
+              style={{ position: 'absolute', top: '2.5rem', left: '2.3rem' }}
+            >
+              <i
+                className='fas fa-search'
+                style={{ fontSize: '1.8rem', color: '#333' }}
+              />
+            </Form.Label>
+            <Form.Control
+              className='form_field'
+              style={{ paddingLeft: '3rem' }}
+              type='text'
+              ref={text}
+              name={text}
+              placeholder='Search for Blog title'
+              onChange={onChange}
+            ></Form.Control>
+          </Form.Group>
+        </Form>
+      </FormContainer>
       <div>
         {blogs !== null && !loading ? (
-          <div className="blogs">
+          <div className='my-5'>
             {filtered !== null
               ? filtered.map((blog) => (
                   <BlogItems key={blog.title} blog={blog} />

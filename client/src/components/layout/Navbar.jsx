@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.scss";
-import AuthContext from "./../../context/auth/authContext";
-import BlogContext from "./../../context/blog/blogContext";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+// import "./Navbar.scss";
+import AuthContext from './../../context/auth/authContext';
+import BlogContext from './../../context/blog/blogContext';
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
@@ -18,19 +18,19 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
+    <div className='navbar'>
       <h1>
-        <i className="fab fa-blogger-b" />
+        <i className='fab fa-blogger-b' />
         Blog App
       </h1>
       <ul>
         <li>
-          <Link className="navbar__link" to="all-posts">
+          <Link className='navbar__link' to='all-posts'>
             All Posts
           </Link>
         </li>
         <li>
-          <Link className="navbar__link" to="my-posts">
+          <Link className='navbar__link' to='my-posts'>
             My Posts
           </Link>
         </li>
@@ -38,9 +38,9 @@ const Navbar = () => {
         {isAuthenticated === true && (
           <li
             style={{
-              color: "#16c79a",
-              fontFamily: "inherit",
-              fontSize: "2rem",
+              color: '#16c79a',
+              fontFamily: 'inherit',
+              fontSize: '2rem',
             }}
           >
             Hello! {user && user.name}
@@ -48,7 +48,7 @@ const Navbar = () => {
         )}
 
         <li>
-          <Link className="navbar__link" to="/login" onClick={onLogout}>
+          <Link className='navbar__link' to='/login' onClick={onLogout}>
             Logout
           </Link>
         </li>

@@ -1,7 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import AuthState from "./context/auth/AuthState";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './bootstrap.min.css';
+import AuthState from './context/auth/AuthState';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,5 +10,5 @@ ReactDOM.render(
       <App />
     </AuthState>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

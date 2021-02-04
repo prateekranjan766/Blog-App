@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-import AuthContext from "./../../context/auth/authContext";
-import AlertContext from "./../../context/alert/alertContext";
-import "./Login.scss";
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import AuthContext from './../../context/auth/authContext';
+import AlertContext from './../../context/alert/alertContext';
+import FormContainer from './../layout/FormContainer';
+import { Form, FormControl, Button } from 'react-bootstrap';
 
 const Login = (props) => {
   const authContext = useContext(AuthContext);
@@ -10,31 +11,24 @@ const Login = (props) => {
   const { isAuthenticated, error, clearError, login } = authContext;
   const { setAlert } = alertContext;
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = user;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push("/all-posts");
+      props.history.push('/all-posts');
     }
-    if (error === "Invalid Credentials!") {
-      setAlert({ msg: "Invalid Credentials!", type: "danger" });
+    if (error === 'Invalid Credentials!') {
+      setAlert({ msg: 'Invalid Credentials!', type: 'danger' });
       clearError();
     }
-
     //eslint-disable-next-line
   }, [isAuthenticated, props.history, error]);
 
-  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
-
   const onSubmit = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
-      setAlert({ msg: "Please enter all fields", type: "danger" });
+    if (email === '' || password === '') {
+      setAlert({ msg: 'Please enter all fields', type: 'danger' });
     } else {
       login({
         email,
@@ -44,44 +38,59 @@ const Login = (props) => {
   };
   return (
     <>
-      <div className="login">
-        <h1>
-          Account <span>Login</span>
+      <FormContainer>
+        <h1
+          className='my-4 text-center'
+          style={{ color: 'khaki', fontSize: '4.5rem' }}
+        >
+          Account <span style={{ color: '#ef4f4ff3' }}>Login</span>
         </h1>
-        <form onSubmit={onSubmit}>
-          <label>
-            <i className="fas fa-envelope-open"></i>
-            <input
-              type="text"
+        <Form onSubmit={onSubmit} className='my-3'>
+          <Form.Group controlId='email'>
+            <Form.Label style={{ fontSize: '1.6rem' }}>
+              <i className='fas fa-envelope-open'></i> Email Address
+            </Form.Label>
+            <FormControl
+              type='email'
+              className='form_field'
               value={email}
-              name="email"
-              placeholder="Email"
-              onChange={onChange}
+              placeholder='Email'
+              onChange={(e) => setEmail(e.target.value)}
               required
-            />
-          </label>
-          <label>
-            <i className="fas fa-lock"></i>
-            <input
-              type="password"
+            ></FormControl>
+          </Form.Group>
+
+          <Form.Group controlId='password'>
+            <Form.Label style={{ fontSize: '1.6rem' }}>
+              <i className='fas fa-lock'></i> Password
+            </Form.Label>
+            <FormControl
+              type='password'
+              className='form_field'
               value={password}
-              name="password"
-              placeholder="Password"
-              onChange={onChange}
+              placeholder='Password'
+              onChange={(e) => setPassword(e.target.value)}
+              minLength={6}
               required
-            />
-          </label>
-          <input className="login__submit" type="submit" value="Login" />
-        </form>
-      </div>
-      <div className="login__link">
-        <h2>
-          New Here?
-          <Link className="login__link--link" to="/register">
-            Register for free
-          </Link>
-        </h2>
-      </div>
+            ></FormControl>
+          </Form.Group>
+          <Button
+            type='submit'
+            className='btn btn-block'
+            style={{
+              backgroundColor: '#ef4f4ff3',
+              borderRadius: '3px',
+              fontSize: '1.6rem',
+              padding: '.7rem 1rem',
+            }}
+          >
+            Log In
+          </Button>
+        </Form>
+        <span style={{ fontSize: '1.6rem' }}>
+          New Here? <Link to='/register'>Register</Link>
+        </span>
+      </FormContainer>
     </>
   );
 };
